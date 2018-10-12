@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="4 远程登录服务器4.1 第一次 ssh 远程登录服务器设置密码登录1ssh root@[IP ID地址] 4.2 配置 root 及应用账号权限12345$ adduser imooc_manager # 自动加入群组 imooc_manager，生成 /home/imooc_manager$ gpasswd -a imooc_manager sudo # 将 imooc_manager 加入到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My First Blog">
+<meta property="og:url" content="http://yoursite.com/2018/10/12/My-First-Blog/index.html">
+<meta property="og:site_name" content="Hhpon">
+<meta property="og:description" content="4 远程登录服务器4.1 第一次 ssh 远程登录服务器设置密码登录1ssh root@[IP ID地址] 4.2 配置 root 及应用账号权限12345$ adduser imooc_manager # 自动加入群组 imooc_manager，生成 /home/imooc_manager$ gpasswd -a imooc_manager sudo # 将 imooc_manager 加入到">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-12T16:12:15.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My First Blog">
+<meta name="twitter:description" content="4 远程登录服务器4.1 第一次 ssh 远程登录服务器设置密码登录1ssh root@[IP ID地址] 4.2 配置 root 及应用账号权限12345$ adduser imooc_manager # 自动加入群组 imooc_manager，生成 /home/imooc_manager$ gpasswd -a imooc_manager sudo # 将 imooc_manager 加入到">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/12/My-First-Blog/"/>
+
+
+
+
+
+  <title>My First Blog | Hhpon</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hhpon</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/My-First-Blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hhpon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hhpon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">My First Blog</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T22:56:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="4-远程登录服务器"><a href="#4-远程登录服务器" class="headerlink" title="4 远程登录服务器"></a>4 远程登录服务器</h3><h4 id="4-1-第一次-ssh-远程登录服务器"><a href="#4-1-第一次-ssh-远程登录服务器" class="headerlink" title="4.1 第一次 ssh 远程登录服务器"></a>4.1 第一次 ssh 远程登录服务器</h4><p>设置密码<br>登录<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@[IP ID地址]</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-2-配置-root-及应用账号权限"><a href="#4-2-配置-root-及应用账号权限" class="headerlink" title="4.2 配置 root 及应用账号权限"></a>4.2 配置 root 及应用账号权限</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ adduser imooc_manager # 自动加入群组 imooc_manager，生成 /home/imooc_manager</span><br><span class="line">$ gpasswd -a imooc_manager sudo # 将 imooc_manager 加入到 群组 sudo</span><br><span class="line">$ sudo visudo # 设置</span><br><span class="line"># User privilege specification</span><br><span class="line">imooc_manager ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>用新账号远程联机<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh imooc_manager@[外网 IP]</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-3-配置本地无密码-SSH-登录"><a href="#4-3-配置本地无密码-SSH-登录" class="headerlink" title="4.3 配置本地无密码 SSH 登录"></a>4.3 配置本地无密码 SSH 登录</h4><p>(1) 客户端配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 确保还没有创建过（没有 id_rsa）</span><br><span class="line">$ ls ~/.ssh</span><br><span class="line"># 新建公钥和私钥</span><br><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;[电子邮件地址]&quot; </span><br><span class="line"># 会生成 id_rsa 和 id_rsa.pub 两个文件</span><br><span class="line">$ eval &quot;$(ssh-agent -s)&quot;</span><br><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p>(2) 服务端配置 ~/.ssh/authorized_keys 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 将客户端的 id_rsa.pub 中的公钥信息复制到这个文件</span><br><span class="line">$ vi ~/.ssh/authorized_keys</span><br><span class="line"># 文件权限设置</span><br><span class="line">$ sudo chmod 600 ~/.ssh/authorized_keys</span><br><span class="line"># 重启 ssh 服务</span><br><span class="line">$ sudo service ssh restart</span><br></pre></td></tr></table></figure></p>
+<p>(3) 然后就可以通过 ssh 登录服务器而不需要密码了</p>
+<h3 id="5-增强服务安全等级"><a href="#5-增强服务安全等级" class="headerlink" title="5 增强服务安全等级"></a>5 增强服务安全等级</h3><h4 id="5-1-修改服务器默认ssh登录端口"><a href="#5-1-修改服务器默认ssh登录端口" class="headerlink" title="5.1 修改服务器默认ssh登录端口"></a>5.1 修改服务器默认ssh登录端口</h4><p>注意：远程修改 ssh 的配置文件有可能不小心就导致当前 ssh 连接断线，再也不能用 ssh 远程登录。因此可以多开一个 ssh 登录服务器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/ssh/sshd_config</span><br><span class="line"># 可以是 0-65536，其中 0-1024 通常会被系统程序使用，而且必须占用这个端口的程序用 root 身份才能启动，因此最好别用 0-1024</span><br><span class="line">Port 12345</span><br><span class="line">PermitRootLogin no</span><br><span class="line">UseDNS no</span><br><span class="line">PasswordAuthentication no</span><br><span class="line">PermitEmptyPasswords no</span><br><span class="line">AllowUsers [允许 ssh 远程登录的用户名]</span><br><span class="line"></span><br><span class="line"># 重启 ssh 服务</span><br><span class="line"></span><br><span class="line">$ sudo service ssh restart</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-2-配置-iptables-和-Fall2Ban-增强安全等级iptables"><a href="#5-2-配置-iptables-和-Fall2Ban-增强安全等级iptables" class="headerlink" title="5.2 配置 iptables 和 Fall2Ban 增强安全等级iptables"></a>5.2 配置 iptables 和 Fall2Ban 增强安全等级iptables</h3><p>☑ 注意: 为了防止 iptables 设置不当导致远程无法登陆，额外开一个 ssh 远程登录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 清空当前所有 iptables 规则</span><br><span class="line">$ sudo iptables -F</span><br><span class="line"># 编写 iptables 规则的配置文件</span><br><span class="line">$ sudo vim /etc/iptables.up.rules</span><br><span class="line">*filter</span><br><span class="line"># allow all input</span><br><span class="line">-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line"># allow all output</span><br><span class="line">-A OUTPUT -j ACCEPT</span><br><span class="line"># allow http(s)</span><br><span class="line">-A INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line">-A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"># allow ssh port login</span><br><span class="line">-A INPUT -p tcp -m state --state NEW --dport 12345 -j ACCEPT</span><br><span class="line"># allow ping</span><br><span class="line">-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT</span><br><span class="line"># log denied calls</span><br><span class="line">-A INPUT -m limit --limit 5/min -j LOG --log-prefix &quot;iptables denied:&quot; --log-level 7</span><br><span class="line"># drop incoming sensitive connections</span><br><span class="line">-A INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --set</span><br><span class="line">-A INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --update --seconds 60 --hitcount 150 -j DROP</span><br><span class="line"># reject all other inbound</span><br><span class="line">-A INPUT -j REJECT</span><br><span class="line">-A FORWARD -j REJECTCOMMIT</span><br><span class="line"></span><br><span class="line"># 应用防火墙规则</span><br><span class="line">$ sudo iptables-restore &lt; /etc/iptables.up.rules</span><br><span class="line"># 查看防火墙是否开启</span><br><span class="line">$ sudo ufw status</span><br><span class="line"># 开启防火墙</span><br><span class="line">$ sudo ufw enable</span><br><span class="line"># 设置 iptables 在网络服务启动时自动启动</span><br><span class="line">$ vim /etc/network/if-up.d/iptables</span><br><span class="line"></span><br><span class="line">#!/bin/sh</span><br><span class="line">iptables-restore /etc/iptables.up.rules</span><br><span class="line">$ sudo chmod +x /etc/network/if-up.d/iptables</span><br></pre></td></tr></table></figure>
+<p>Fail2Ban</p>
+<hr>
+<p>☑ 说明： 一个安防模块，可以看作一个防御性的动作库，通过监控系统的日志文件，根据检测到任意可疑的行为，出发不同的环境动作，比如对可疑的目标执行 ip 锁定等。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fail2ban</span><br></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>/etc/fail2ban/jail.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bantime = 3600</span><br><span class="line">destemail = mengqingshen_sean@outlook.com</span><br><span class="line">action = %(action_mw)s</span><br></pre></td></tr></table></figure></p>
+<h4 id="运行状态"><a href="#运行状态" class="headerlink" title="运行状态"></a>运行状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service fail2ban status</span><br></pre></td></tr></table></figure>
+<h4 id="开启与关闭"><a href="#开启与关闭" class="headerlink" title="开启与关闭"></a>开启与关闭</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo servive fail2ban start</span><br><span class="line">$ sudo servive fail2ban stop</span><br></pre></td></tr></table></figure>
+<h3 id="6-搭建-Nodejs-生产环境"><a href="#6-搭建-Nodejs-生产环境" class="headerlink" title="6 搭建 Nodejs 生产环境"></a>6 搭建 Nodejs 生产环境</h3><h4 id="6-1-搭建服务器的-Nodejs-环境依赖环境"><a href="#6-1-搭建服务器的-Nodejs-环境依赖环境" class="headerlink" title="6.1 搭建服务器的 Nodejs 环境依赖环境"></a>6.1 搭建服务器的 Nodejs 环境依赖环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install vim openssl build-essential libssl-dev wget curl git</span><br></pre></td></tr></table></figure>
+<h4 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h4><p>☑ 注意: 安装后，需要重新登入终端，从而载入 nvm 相关的环境变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br></pre></td></tr></table></figure>
+<h4 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ nvm ls-remote</span><br><span class="line">$ nvm install v7.9.0</span><br><span class="line">$ nvm use v7.9.0</span><br><span class="line">$ nvm alias default v7.9.0</span><br></pre></td></tr></table></figure>
+<h4 id="升级-npm"><a href="#升级-npm" class="headerlink" title="升级 npm"></a>升级 npm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 国内网速慢的话，可以考虑用淘宝的源</span><br><span class="line">$ npm install --registry=https://registry.npm.taobao.org install -g npm</span><br></pre></td></tr></table></figure>
+<h4 id="设置系统文件监控数目"><a href="#设置系统文件监控数目" class="headerlink" title="设置系统文件监控数目"></a>设置系统文件监控数目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</span><br></pre></td></tr></table></figure>
+<h4 id="使用-cnpm-取代-npm"><a href="#使用-cnpm-取代-npm" class="headerlink" title="使用 cnpm 取代 npm"></a>使用 cnpm 取代 npm</h4><p>☑ 注意: 只要网络不是太糟糕，建议始终使用 npm 而不是 cnpm。</p>
+<h4 id="常用-nodejs-包"><a href="#常用-nodejs-包" class="headerlink" title="常用 nodejs 包"></a>常用 nodejs 包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i pm2 webpack gulp grunt-cli -g</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-借助-pm2-让-Nodejs-服务常驻"><a href="#6-2-借助-pm2-让-Nodejs-服务常驻" class="headerlink" title="6.2 借助 pm2 让 Nodejs 服务常驻"></a>6.2 借助 pm2 让 Nodejs 服务常驻</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 启动 nodejs 程序</span><br><span class="line">$ pm2 start app.js</span><br><span class="line"># 当前 pm2 管理的 nodejs 程序列表</span><br><span class="line">$ pm2 list</span><br><span class="line"># 查看某个程序的详细信息</span><br><span class="line">$ pm2 show app</span><br><span class="line"># 查看实时日志</span><br><span class="line">$ pm2 logs</span><br></pre></td></tr></table></figure>
+<h3 id="7-配置-nginx-实现反向代理"><a href="#7-配置-nginx-实现反向代理" class="headerlink" title="7 配置 nginx 实现反向代理"></a>7 配置 nginx 实现反向代理</h3><h4 id="删除-apache"><a href="#删除-apache" class="headerlink" title="删除 apache"></a>删除 apache</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service apache2 stop</span><br><span class="line">$ sudo service apache stop</span><br><span class="line">$ update-rc.d -f apache2 remove</span><br><span class="line">$ sudo apt-get remove apache2</span><br></pre></td></tr></table></figure>
+<h4 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+<h4 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h4><p>/etc/nginx/conf.d/webappbook-8081.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream imooc &#123;</span><br><span class="line">      server 127.0.0.1:8081;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;  </span><br><span class="line">    server_name [服务器外网 IP 地址];  </span><br><span class="line">    </span><br><span class="line">    location / &#123;    </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;    </span><br><span class="line">        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;    </span><br><span class="line">        proxy_set_header Host $http_host;    </span><br><span class="line">        proxy_set_header X-Nginx-Proxy true;    </span><br><span class="line">        proxy_pass http://imooc;    </span><br><span class="line">        proxy_redirect off;  </span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/etc/nginx/nginx.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...http &#123;  </span><br><span class="line">    ...  </span><br><span class="line">    # 响应头中隐藏 nginx 版本信息  </span><br><span class="line">    server_tokens off;  </span><br><span class="line">    include /etc/nginx/conf.d/*.conf;  </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 测试 nginx 有没有问题</span><br><span class="line">$ sudo nginx -t</span><br><span class="line"># 启动 nginx$ sudo nginx <span class="built_in">start</span></span><br><span class="line"># 重新载入配置</span><br><span class="line">$ sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="9-服务器配置安装-MongoDB"><a href="#9-服务器配置安装-MongoDB" class="headerlink" title="9 服务器配置安装 MongoDB"></a>9 服务器配置安装 MongoDB</h3><p>注意： 因为成本原因，MongoDB 和 Web 服务在同一个 ECS 实例上，在商业实践中，为了解耦，应当放在不同的实例中。或者有条件的话，可以购买阿里云专门的 MongoDB 数据库服务。</p>
+<h4 id="9-1-在-Ubuntu-14-04-上安装-MongoDB"><a href="#9-1-在-Ubuntu-14-04-上安装-MongoDB" class="headerlink" title="9.1 在 Ubuntu 14.04 上安装 MongoDB"></a>9.1 在 Ubuntu 14.04 上安装 MongoDB</h4><h5 id="9-1-1-安装"><a href="#9-1-1-安装" class="headerlink" title="9.1.1 安装"></a>9.1.1 安装</h5><p>参考 MongoDB 官网 <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener">Install on Ubuntu</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6</span><br><span class="line">$ echo &quot;deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install -y mongodb-org</span><br><span class="line"># 如果上一步提示找不到 mongodb-org，则将 aliyun 的源注释掉，使用 ubuntu 官方的源。</span><br><span class="line"># $ sudo vim /etc/apt/apt.conf</span><br><span class="line"># 然后，如果要加快加快下载速度，可以将 mongodb 的源改为 aliyun</span><br><span class="line"># $ sudo vim /etc/apt/sources.list.d/mongodb-org-3.4.list </span><br><span class="line"># deb [ arch=amd64,arm64 ] http://mirrors.aliyun.com/apt/ubuntu trusty/mongodb-org/3.4 multiverse</span><br></pre></td></tr></table></figure>
+<h5 id="9-1-2-配置MongoDB-配置"><a href="#9-1-2-配置MongoDB-配置" class="headerlink" title="9.1.2 配置MongoDB 配置"></a>9.1.2 配置MongoDB 配置</h5><p>/etc/mongod.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net:	</span><br><span class="line">    port 27018 # 为了安全起见，不使用默认端口</span><br><span class="line"></span><br><span class="line">$ sudo service mongod restart</span><br></pre></td></tr></table></figure></p>
+<p>防火墙配置</p>
+<p>/etc/iptables.up.rules<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mongodb connect</span><br><span class="line">-A INPUT -s 127.0.1 -p tcp --destination-port 27017 -m state --state NEW,ESTABLISHED -j ACCEPT</span><br><span class="line">-A OUTPUT -s 127.0.1 -p tcp --source-port 27017 -m state --state ESTABLISHED -j ACCEPT</span><br><span class="line">$ sudo iptables-restore &lt; /etc/iptables.up.rules</span><br></pre></td></tr></table></figure></p>
+<h5 id="9-1-3-启动-amp"><a href="#9-1-3-启动-amp" class="headerlink" title="9.1.3 启动&amp;"></a>9.1.3 启动&amp;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># mongodb 的日志文件</span><br><span class="line">$ cat /var/log/mongodb/mongod.log</span><br><span class="line"># 启动 mongodb 服务</span><br><span class="line">$ sudo service mongod start</span><br><span class="line"># 重启 mongodb 服务</span><br><span class="line">$ sudo service mongod restart</span><br><span class="line"># 查看 mongodb 服务的状态</span><br><span class="line">$ sudo service mongod status</span><br></pre></td></tr></table></figure>
+<h5 id="9-1-4-连接"><a href="#9-1-4-连接" class="headerlink" title="9.1.4 连接"></a>9.1.4 连接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo --port 27018</span><br></pre></td></tr></table></figure>
+<h4 id="9-2-往线上-MongoDB-导入单表数据或数据库"><a href="#9-2-往线上-MongoDB-导入单表数据或数据库" class="headerlink" title="9.2 往线上 MongoDB 导入单表数据或数据库"></a>9.2 往线上 MongoDB 导入单表数据或数据库</h4><p>☑ 技巧: 导入的时机一般是在数据库软件安装好之后，数据库用户创建前。从而避免用户权限带来的一些麻烦。</p>
+<h5 id="9-2-2-整个数据库本地导出、打包、上传"><a href="#9-2-2-整个数据库本地导出、打包、上传" class="headerlink" title="9.2.2 整个数据库本地导出、打包、上传"></a>9.2.2 整个数据库本地导出、打包、上传</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 存放项目备份数据的文件夹</span><br><span class="line">$ cd deploy-projects</span><br><span class="line"># 将本地 MongoDB 中的名为indust-app的数据库导出到当前目录下的 indust-app-backup 文件夹下</span><br><span class="line">$ mongodump -h 127.0.0.1:27017 -d indust-app -o indust-app-backup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 打包 MongoDB 数据库数据并压缩</span><br><span class="line">$ tar zcvf indust-app.tar.gz indust-app-backup</span><br><span class="line"># 上传到服务器</span><br><span class="line">$ scp -P [ssh端口] ./indust-app-backup.tar.gz [远程服务器用户名]@[远程服务器 IP]:[远程服务器目录]</span><br></pre></td></tr></table></figure>
+<p>服务器解压、导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf indust-app-backup.tar.gz</span><br><span class="line">$ cd indust-app-backup# 将解压的数据导入当前机器中的 MongoDB 的 indust-app 数据库</span><br><span class="line">$ mongorestore --host 127.0.0.1:[mongoDB 服务端口] -d indust-app ./indust-app/</span><br><span class="line"># 查看导入的数据</span><br><span class="line">$ mongo --port [mongoDB 服务端口]&gt; use indust-app&gt; show tables</span><br></pre></td></tr></table></figure></p>
+<h3 id="10-项服务器正式部署和发布上线-Nodejs-项目"><a href="#10-项服务器正式部署和发布上线-Nodejs-项目" class="headerlink" title="10 项服务器正式部署和发布上线 Nodejs 项目"></a>10 项服务器正式部署和发布上线 Nodejs 项目</h3><h4 id="10-1-上传项目代码到线上私有-Git-仓库"><a href="#10-1-上传项目代码到线上私有-Git-仓库" class="headerlink" title="10.1 上传项目代码到线上私有 Git 仓库"></a>10.1 上传项目代码到线上私有 Git 仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Scott&quot;</span><br><span class="line">$ git config --global user.email &quot;xx@xx.xx&quot;</span><br><span class="line">$ cd deploy-project/website-server</span><br><span class="line"># 初始化 git 仓库</span><br><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m &apos;First commit&apos;</span><br><span class="line"># 关联线上仓库</span><br><span class="line">$ git remote add origin git@git.oschina.net:wolf18387/backend-website.git</span><br><span class="line"># 同步数据</span><br><span class="line">$ git push -u origin master</span><br><span class="line">$ git fetch</span><br><span class="line">$ git merge origin/master</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="10-2-配置-PM2-一键部署线上项目结构"><a href="#10-2-配置-PM2-一键部署线上项目结构" class="headerlink" title="10.2 配置 PM2 一键部署线上项目结构"></a>10.2 配置 PM2 一键部署线上项目结构</h4><p>使用 PM2，并采用配置文件的方式来部署项目。</p>
+<h5 id="10-2-1-服务端准备"><a href="#10-2-1-服务端准备" class="headerlink" title="10.2.1 服务端准备"></a>10.2.1 服务端准备</h5><p>(1) 准备好程序所在的文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir -p /www/website</span><br><span class="line">$ sudo chmod 777 /www/website</span><br></pre></td></tr></table></figure></p>
+<h5 id="10-2-2-从客户端发布"><a href="#10-2-2-从客户端发布" class="headerlink" title="10.2.2 从客户端发布"></a>10.2.2 从客户端发布</h5><p>(1) 本地在项目中创建PM2 配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">website-server/ecosystem.json</span><br><span class="line"></span><br><span class="line">&#123;  </span><br><span class="line">    &quot;apps&quot;: [</span><br><span class="line">        &#123;      </span><br><span class="line">            &quot;name&quot;: &quot;Website&quot;, // 应用名称      </span><br><span class="line">            &quot;script&quot;: &quot;app.js&quot;, // 应用入口      </span><br><span class="line">            &quot;env&quot;: &#123;// 启动应用时的环境变量        </span><br><span class="line">            &quot;COMMON_VARIABLE&quot;: true      </span><br><span class="line">            &#125;,      </span><br><span class="line">            &quot;env_production&quot;: &#123;// 生产环境启动应用时的环境变量        </span><br><span class="line">                &quot;NODE_ENV&quot;: &quot;production&quot;      </span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;  </span><br><span class="line">    ],  </span><br><span class="line">    &quot;deploy&quot;: &#123;    </span><br><span class="line">        &quot;production&quot;: &#123; // 任务名      </span><br><span class="line">        &quot;user&quot;: &quot;imooc_manager&quot;, // 生产服务器账号      </span><br><span class="line">        &quot;host&quot;: [&quot;120.26.235.4&quot;], // 生产服务器地址      </span><br><span class="line">        &quot;port&quot;: &quot;39999&quot;, // 服务器 SSH 端口      </span><br><span class="line">        &quot;ref&quot;: &quot;origin/master&quot;, // 分支      </span><br><span class="line">        &quot;repo&quot;: &quot;git@git.oschina.net:wolf18387/backend-website.git&quot;, // 仓库地址      </span><br><span class="line">        &quot;path&quot;: &quot;/www/website/production&quot;, // 应用部署路径(绝对路径, 要确保该路径对 imooc_manager 可读可写可执行)      </span><br><span class="line">        &quot;ssh_options&quot;: &quot;StrictHostKeyChecking=no&quot;,      </span><br><span class="line">        &quot;env&quot;: &#123; // 环境变量设置        </span><br><span class="line">            &quot;NODE_ENV&quot;: &quot;production&quot;      </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2) 本地使用 PM2 部署到线上服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pm2 deploy ecosystem.json production setup</span><br></pre></td></tr></table></figure></p>
+<h4 id="10-3-从本地发布上线和更新服务器的-Nodejs-项目"><a href="#10-3-从本地发布上线和更新服务器的-Nodejs-项目" class="headerlink" title="10.3 从本地发布上线和更新服务器的 Nodejs 项目"></a>10.3 从本地发布上线和更新服务器的 Nodejs 项目</h4><p>使用 PM2 实现本地控制远端代码更新和服务重启。</p>
+<h5 id="10-3-1-服务端准备"><a href="#10-3-1-服务端准备" class="headerlink" title="10.3.1 服务端准备"></a>10.3.1 服务端准备</h5><p>~/.bashrc</p>
+<p>由于 PM2 需要以交互的方式通过 SSH 连接服务器，需要注释掉下面的代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># If not running interactively, don&apos;t do anything</span><br><span class="line">#case $- in</span><br><span class="line">#	*i*);;</span><br><span class="line">#	*) return;;</span><br><span class="line">#esac</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h5 id="10-3-2-从客户端发布到服务端并启动应用"><a href="#10-3-2-从客户端发布到服务端并启动应用" class="headerlink" title="10.3.2 从客户端发布到服务端并启动应用"></a>10.3.2 从客户端发布到服务端并启动应用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pm2 deploy ecosystem.json production</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/12/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hhpon</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-远程登录服务器"><span class="nav-number">1.</span> <span class="nav-text">4 远程登录服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-第一次-ssh-远程登录服务器"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 第一次 ssh 远程登录服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-配置-root-及应用账号权限"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 配置 root 及应用账号权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-配置本地无密码-SSH-登录"><span class="nav-number">1.3.</span> <span class="nav-text">4.3 配置本地无密码 SSH 登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-增强服务安全等级"><span class="nav-number">2.</span> <span class="nav-text">5 增强服务安全等级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-修改服务器默认ssh登录端口"><span class="nav-number">2.1.</span> <span class="nav-text">5.1 修改服务器默认ssh登录端口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-配置-iptables-和-Fall2Ban-增强安全等级iptables"><span class="nav-number">3.</span> <span class="nav-text">5.2 配置 iptables 和 Fall2Ban 增强安全等级iptables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行状态"><span class="nav-number">3.3.</span> <span class="nav-text">运行状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启与关闭"><span class="nav-number">3.4.</span> <span class="nav-text">开启与关闭</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-搭建-Nodejs-生产环境"><span class="nav-number">4.</span> <span class="nav-text">6 搭建 Nodejs 生产环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-搭建服务器的-Nodejs-环境依赖环境"><span class="nav-number">4.1.</span> <span class="nav-text">6.1 搭建服务器的 Nodejs 环境依赖环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nvm"><span class="nav-number">4.2.</span> <span class="nav-text">nvm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nodejs"><span class="nav-number">4.3.</span> <span class="nav-text">nodejs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#升级-npm"><span class="nav-number">4.4.</span> <span class="nav-text">升级 npm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置系统文件监控数目"><span class="nav-number">4.5.</span> <span class="nav-text">设置系统文件监控数目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-cnpm-取代-npm"><span class="nav-number">4.6.</span> <span class="nav-text">使用 cnpm 取代 npm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用-nodejs-包"><span class="nav-number">4.7.</span> <span class="nav-text">常用 nodejs 包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-借助-pm2-让-Nodejs-服务常驻"><span class="nav-number">4.8.</span> <span class="nav-text">6.2 借助 pm2 让 Nodejs 服务常驻</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-配置-nginx-实现反向代理"><span class="nav-number">5.</span> <span class="nav-text">7 配置 nginx 实现反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除-apache"><span class="nav-number">5.1.</span> <span class="nav-text">删除 apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-nginx"><span class="nav-number">5.2.</span> <span class="nav-text">安装 nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-nginx"><span class="nav-number">5.3.</span> <span class="nav-text">配置 nginx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-服务器配置安装-MongoDB"><span class="nav-number">6.</span> <span class="nav-text">9 服务器配置安装 MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-在-Ubuntu-14-04-上安装-MongoDB"><span class="nav-number">6.1.</span> <span class="nav-text">9.1 在 Ubuntu 14.04 上安装 MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1-1-安装"><span class="nav-number">6.1.1.</span> <span class="nav-text">9.1.1 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1-2-配置MongoDB-配置"><span class="nav-number">6.1.2.</span> <span class="nav-text">9.1.2 配置MongoDB 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1-3-启动-amp"><span class="nav-number">6.1.3.</span> <span class="nav-text">9.1.3 启动&amp;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1-4-连接"><span class="nav-number">6.1.4.</span> <span class="nav-text">9.1.4 连接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-往线上-MongoDB-导入单表数据或数据库"><span class="nav-number">6.2.</span> <span class="nav-text">9.2 往线上 MongoDB 导入单表数据或数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-2-2-整个数据库本地导出、打包、上传"><span class="nav-number">6.2.1.</span> <span class="nav-text">9.2.2 整个数据库本地导出、打包、上传</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-项服务器正式部署和发布上线-Nodejs-项目"><span class="nav-number">7.</span> <span class="nav-text">10 项服务器正式部署和发布上线 Nodejs 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-上传项目代码到线上私有-Git-仓库"><span class="nav-number">7.1.</span> <span class="nav-text">10.1 上传项目代码到线上私有 Git 仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-配置-PM2-一键部署线上项目结构"><span class="nav-number">7.2.</span> <span class="nav-text">10.2 配置 PM2 一键部署线上项目结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-2-1-服务端准备"><span class="nav-number">7.2.1.</span> <span class="nav-text">10.2.1 服务端准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-2-2-从客户端发布"><span class="nav-number">7.2.2.</span> <span class="nav-text">10.2.2 从客户端发布</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-从本地发布上线和更新服务器的-Nodejs-项目"><span class="nav-number">7.3.</span> <span class="nav-text">10.3 从本地发布上线和更新服务器的 Nodejs 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-3-1-服务端准备"><span class="nav-number">7.3.1.</span> <span class="nav-text">10.3.1 服务端准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-3-2-从客户端发布到服务端并启动应用"><span class="nav-number">7.3.2.</span> <span class="nav-text">10.3.2 从客户端发布到服务端并启动应用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hhpon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
