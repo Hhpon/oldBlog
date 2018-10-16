@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/13/js-1/dui.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/js-1/zhan.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/js-1/math.png">
-<meta property="og:updated_time" content="2018-10-16T06:13:10.016Z">
+<meta property="og:updated_time" content="2018-10-16T07:25:07.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js 基础入门">
 <meta name="twitter:description" content="javaScript 简介 如果说ajax让JavaScript有了新生， 那么最近几年，HTML5和node的兴起，让JavaScript有了质的飞越，如果以后我们想从事前端方向的发展，你务必要学好JavaScript。 JavaScript 是网景（Netscape）公司开发的一种基于客户端浏览器、面向（基于）对象、事件驱动式的网页脚本语言。 JavaScript 在用户浏览器内部运行，Jav">
@@ -342,10 +342,10 @@
 <h3 id="在-Web-页面里添加-JavaScript"><a href="#在-Web-页面里添加-JavaScript" class="headerlink" title="在 Web 页面里添加 JavaScript"></a>在 Web 页面里添加 JavaScript</h3><p>JavaScript 代码是和页面内容一起发送给浏览器的, 可以把 JavaScript 代码集成到 HTML 页面：</p>
 <p>(1). 嵌入式</p>
 <p>JavaScript 语句直接包含在 HTML 文件里，语法结构如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line">     javascript语句;</span><br><span class="line"></span><br><span class="line"> &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">     javascript语句;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>(2). 外链式</p>
 <p>把 JavaScript 代码保存到单独的文件，然后利用script标签的 src（源）属性把这个文件包含到页面里。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/demo.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/demo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="JavaScript-基本格式"><a href="#JavaScript-基本格式" class="headerlink" title="JavaScript 基本格式"></a>JavaScript 基本格式</h3><hr>
 <p>JavaScript 程序是由一些单独的指令组成的，这些指令被称为“语句”。为了能够正确地 解释语句，浏览器对语句的书写方式有所要求。</p>
 <p>第一种方式是把每个语句一行：</p>
@@ -514,9 +514,8 @@
 <p>可以用break语句来实现这个目的。最后一个语句可以不加break语句。</p>
 <h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><hr>
 <h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><hr>
-<p>for (循环的初始; 循环的条件; 循环的增量) </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    需执行的代码;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量=初始值;变量&lt;=结束值;变量=变量+步进值) </span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    需执行的代码;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (循环的初始; 循环的条件; 循环的增量)&#123;</span><br><span class="line">    需执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (变量=初始值;变量&lt;=结束值;变量=变量+步进值)&#123;</span><br><span class="line">    需执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="双重for循环"><a href="#双重for循环" class="headerlink" title="双重for循环"></a>双重for循环</h3><hr>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (外循环的初始; 外循环的条件; 外循环的增量) &#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (内循环的初始; 内循环的条件; 内循环的增量) &#123;  </span><br><span class="line"></span><br><span class="line">       需执行的代码;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -726,6 +725,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -974,6 +983,24 @@
 
   
 
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/10/13/js-1/';
+          this.page.identifier = '2018/10/13/js-1/';
+          this.page.title = 'Js 基础入门';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 
