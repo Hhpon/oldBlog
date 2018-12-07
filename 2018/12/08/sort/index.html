@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="sort() 方法 语法123arrayObject.sort(sortby)//sortby 可选，规定排序顺序，必须是函数//返回值：对数组的引用。请注意，数组在原数组上进行排序，不生成副本。 如果没有引用函数，默认按照字符编码的顺序进行排序；若希望按照其他方法排序，需提供比较函数。该函数要比较两个值，并返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js 中文排序">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/sort/index.html">
+<meta property="og:site_name" content="Hhpon">
+<meta property="og:description" content="sort() 方法 语法123arrayObject.sort(sortby)//sortby 可选，规定排序顺序，必须是函数//返回值：对数组的引用。请注意，数组在原数组上进行排序，不生成副本。 如果没有引用函数，默认按照字符编码的顺序进行排序；若希望按照其他方法排序，需提供比较函数。该函数要比较两个值，并返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-07T17:16:43.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Js 中文排序">
+<meta name="twitter:description" content="sort() 方法 语法123arrayObject.sort(sortby)//sortby 可选，规定排序顺序，必须是函数//返回值：对数组的引用。请注意，数组在原数组上进行排序，不生成副本。 如果没有引用函数，默认按照字符编码的顺序进行排序；若希望按照其他方法排序，需提供比较函数。该函数要比较两个值，并返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/08/sort/"/>
+
+
+
+
+
+  <title>Js 中文排序 | Hhpon</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hhpon</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hhpon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hhpon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Js 中文排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-08T00:47:58+08:00">
+                2018-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort() 方法"></a>sort() 方法</h3><hr>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.sort(sortby)</span><br><span class="line"><span class="comment">//sortby 可选，规定排序顺序，必须是函数</span></span><br><span class="line"><span class="comment">//返回值：对数组的引用。请注意，数组在原数组上进行排序，不生成副本。</span></span><br></pre></td></tr></table></figure>
+<p>如果没有引用函数，默认按照字符编码的顺序进行排序；<br>若希望按照其他方法排序，需提供比较函数。该函数要比较两个值，并返回一个用于说明这两个值的相对顺序的数字。<br>比较函数应该具有两个参数 a 和 b，其返回值如下：</p>
+<ul>
+<li>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。</li>
+<li>若 a 等于 b，则返回 0。</li>
+<li>若 a 大于 b，则返回一个大于 0 的值。</li>
+</ul>
+<h4 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">"James"</span></span><br><span class="line">arr[<span class="number">4</span>] = <span class="string">"Adrew"</span></span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">"Martin"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr + <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr.sort())</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/输出</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/George,John,Thomas,James,Adrew,Martin</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/Adrew,George,James,John,Martin,Thomas</span></span><br></pre></td></tr></table></figure>
+<h4 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"10"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"5"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"40"</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">"25"</span></span><br><span class="line">arr[<span class="number">4</span>] = <span class="string">"1000"</span></span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr + <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr.sort())</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/输出</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/10,5,40,25,1000,1</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/1,10,1000,25,40,5</span></span><br></pre></td></tr></table></figure>
+<p><strong>请注意，上面的代码没有按照数值的大小对数字进行排序，要实现这一点，就必须使用一个排序函数：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortNumber</span>(<span class="params">a,b</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> a - b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">"10"</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">"5"</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">"40"</span></span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">"25"</span></span><br><span class="line">arr[<span class="number">4</span>] = <span class="string">"1000"</span></span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(arr + <span class="string">"&lt;br /&gt;"</span>)</span><br><span class="line"><span class="built_in">document</span>.write(arr.sort(sortNumber))</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/输出</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/10,5,40,25,1000,1</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/1,5,10,25,40,1000</span></span><br></pre></td></tr></table></figure>
+<h3 id="charAt-方法"><a href="#charAt-方法" class="headerlink" title="charAt() 方法"></a>charAt() 方法</h3><hr>
+<p>charAt() 方法可返回指定位置的字符。</p>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stringObject.charAt(index)</span><br><span class="line"><span class="comment">//index 必需 表示字符串中某个位置的数字，即字符在字符串中的下标。</span></span><br><span class="line"><span class="comment">//注释：字符串中第一个字符的下标是 0。如果参数 index 不在 0 与 string.length 之间，该方法将返回一个空字符串。</span></span><br></pre></td></tr></table></figure>
+<h3 id="charCodeAt-方法"><a href="#charCodeAt-方法" class="headerlink" title="charCodeAt() 方法"></a>charCodeAt() 方法</h3><hr>
+<p>charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。</p>
+<h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stringObject.charCodeAt(index)</span><br><span class="line"><span class="comment">//index 必需 表示字符串中某个位置的数字，即字符在字符串中的下标。</span></span><br><span class="line"><span class="comment">//注释：字符串中第一个字符的下标是 0。如果 index 是负数，或大于等于字符串的长度，则 charCodeAt() 返回 NaN。</span></span><br></pre></td></tr></table></figure>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"Hello world!"</span></span><br><span class="line"><span class="built_in">document</span>.write(str.charCodeAt(<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 输出 101</span></span><br></pre></td></tr></table></figure>
+<h3 id="localeCompare-方法"><a href="#localeCompare-方法" class="headerlink" title="localeCompare() 方法"></a>localeCompare() 方法</h3><hr>
+<p>用本地特定的顺序来比较两个字符串。</p>
+<h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stringObject.localeCompare(target)</span><br><span class="line"><span class="comment">//target 要以本地特定的顺序与 stringObject 进行比较的字符串。</span></span><br><span class="line"><span class="comment">//返回值 说明比较结果的数字。如果 stringObject 小于 target，则 localeCompare() 返回小于 0 的数。如果 stringObject 大于 target，则该方法返回大于 0 的数。如果两个字符串相等，或根据本地排序规则没有区别，该方法返回 0。</span></span><br><span class="line"><span class="comment">//注释 把 &lt; 和 &gt; 运算符应用到字符串时，它们只用字符的 Unicode 编码比较字符串，而不考虑当地的排序规则。以这种方法生成的顺序不一定是正确的。</span></span><br></pre></td></tr></table></figure>
+<p>综合以上几个方法就可以把中文、数字、英文等按照一定顺序排列了</p>
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">""</span>, <span class="string">"A001"</span>, <span class="string">"V002"</span>, <span class="string">"V003"</span>, <span class="string">"_123"</span>, <span class="string">"133"</span>, <span class="string">"2334"</span>, <span class="string">"大124"</span>, <span class="string">"小afaf"</span>, <span class="string">"a001"</span>, <span class="string">"v004"</span>, <span class="string">"马龙"</span>, <span class="string">"中华"</span>, <span class="string">"中国"</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> max_length = <span class="built_in">Math</span>.max(a.length, b.length),</span><br><span class="line">        compare_result = <span class="number">0</span>,</span><br><span class="line">        i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(compare_result === <span class="number">0</span> &amp;&amp; i &lt; max_length) &#123;</span><br><span class="line">        compare_result = compare_char(a.charAt(i), b.charAt(i));</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare_result;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare_char</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a_type = get_char_type(a),</span><br><span class="line">        b_type = get_char_type(b);</span><br><span class="line">    <span class="keyword">if</span>(a_type === b_type &amp;&amp; a_type &lt; <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> a.charCodeAt(<span class="number">0</span>) - b.charCodeAt(<span class="number">0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a_type === b_type &amp;&amp; a_type === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> a.localeCompare(b);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a_type - b_type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_char_type</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> return_code = &#123;</span><br><span class="line">        nul: <span class="number">0</span>,</span><br><span class="line">        symb: <span class="number">1</span>,</span><br><span class="line">        number: <span class="number">2</span>,</span><br><span class="line">        upper: <span class="number">3</span>,</span><br><span class="line">        lower: <span class="number">4</span>,</span><br><span class="line">        other: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(a === <span class="string">''</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.nul; <span class="comment">//空</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">127</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.other;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">122</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.symb;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">96</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.lower;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">90</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.symb;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">64</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.upper;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">58</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.symb;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(a.charCodeAt(<span class="number">0</span>) &gt; <span class="number">47</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.number;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> return_code.symb;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">//["", "_123", "133", "2334", "A001", "V002", "V003", "a001", "v004", "大124", "小afaf", "马龙", "中华", "中国"]</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/spider/" rel="next" title="网络爬虫">
+                <i class="fa fa-chevron-left"></i> 网络爬虫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Hhpon</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-方法"><span class="nav-number">1.</span> <span class="nav-text">sort() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子1"><span class="nav-number">1.2.</span> <span class="nav-text">例子1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子2"><span class="nav-number">1.3.</span> <span class="nav-text">例子2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt-方法"><span class="nav-number">2.</span> <span class="nav-text">charAt() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charCodeAt-方法"><span class="nav-number">3.</span> <span class="nav-text">charCodeAt() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-2"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例"><span class="nav-number">3.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localeCompare-方法"><span class="nav-number">4.</span> <span class="nav-text">localeCompare() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-3"><span class="nav-number">4.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际应用"><span class="nav-number">5.</span> <span class="nav-text">实际应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hhpon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/12/08/sort/';
+          this.page.identifier = '2018/12/08/sort/';
+          this.page.title = 'Js 中文排序';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
