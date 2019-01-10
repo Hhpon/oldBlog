@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hhpon">
 <meta property="og:description" content="第一天 1.写出你的第一个网页&amp;lt;!DOCTYPE&amp;gt; 声明不是 HTML 标签；它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令。 例如：12345678910&amp;lt;!DOCTYPE html&amp;gt;  &amp;lt;!--表示html5--&amp;gt;&amp;lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T16:04:25.577Z">
+<meta property="og:updated_time" content="2019-01-10T10:21:04.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML&#x2F;CSS 入门">
 <meta name="twitter:description" content="第一天 1.写出你的第一个网页&amp;lt;!DOCTYPE&amp;gt; 声明不是 HTML 标签；它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令。 例如：12345678910&amp;lt;!DOCTYPE html&amp;gt;  &amp;lt;!--表示html5--&amp;gt;&amp;lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://">
@@ -462,14 +462,13 @@
 <h4 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h4><p>请完成一个宽高均为100px，内边距为20px，边框为10px，边框颜色为蓝色，外边距为5px的div；</p>
 <h4 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h4><p>经过刚刚的观察，请问你知道，当我们设置一个元素的width和height属性的时候，设置的是元素的哪部分宽高吗？是内容宽高？还是内容加内边距？还是其他？</p>
 <p>答： 内容的宽高</p>
-<p>如果有一天遇到问题，想要实现这个方法，可以使用box-size:border-box，可以使width和height设置的是整个盒子的高度与宽度， 即： 不算margin在内</p>
+<p>如果有一天遇到问题，想要实现这个方法，可以使用box-sizing:border-box，可以使width和height设置的是整个盒子的高度与宽度， 即： 不算margin在内</p>
 <p>box-sizing: content-box|border-box|inherit;</p>
 <h3 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h3><hr>
 <h4 id="display-规定元素生成的框类型"><a href="#display-规定元素生成的框类型" class="headerlink" title="display 规定元素生成的框类型"></a>display 规定元素生成的框类型</h4><ul>
 <li>block（块元素）<ul>
-<li>在没有设置宽度的时候，默认撑满一行</li>
-<li>默认块元素独占一行</li>
-<li>支持所有css命令</li>
+<li>每个块级元素都从新的一行开始，并且其后的元素也另起一行。</li>
+<li>元素的高度、宽度、行高以及顶和底边距都可设置。</li>
 </ul>
 </li>
 <li>inline（内联元素）<ul>
@@ -477,7 +476,6 @@
 <li>不支持宽高属性</li>
 <li>同排可以继续跟同类的标签</li>
 <li>不支持上下的margin</li>
-<li>代码换行被解析</li>
 </ul>
 </li>
 <li>inline-block（内联块）<ul>
@@ -488,7 +486,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="position"><a href="#position" class="headerlink" title="position"></a>position</h4><p>static|relative|absolve|fixed</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 常见块级元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">h1</span>&gt;</span>-<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 常见的内联元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>、<span class="tag">&lt;<span class="name">br</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 常见的内联块元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span>&gt;</span>、<span class="tag">&lt;<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="position"><a href="#position" class="headerlink" title="position"></a>position</h4><p>static|relative|absolute|fixed</p>
 <h4 id="默认-static-无定位"><a href="#默认-static-无定位" class="headerlink" title="默认 static 无定位"></a>默认 static 无定位</h4><h4 id="position-relative-相对定位"><a href="#position-relative-相对定位" class="headerlink" title="position: relative; 相对定位"></a>position: relative; 相对定位</h4><ul>
 <li>相对于其正常位置定位</li>
 <li>不使影响元素本身的特性</li>
