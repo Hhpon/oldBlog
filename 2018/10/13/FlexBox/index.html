@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/13/FlexBox/flex-grow.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/FlexBox/flex-shrink.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/10/13/FlexBox/align-self.png">
-<meta property="og:updated_time" content="2018-10-13T06:33:49.115Z">
+<meta property="og:updated_time" content="2019-01-14T04:07:39.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FlexBox">
 <meta name="twitter:description" content="传统的布局方案: 盒模型 + 定位(position) + 浮动(Float)，不适合现如今的响应式布局；  响应式布局:响应式布局是Ethan Marcotte在2010年5月份提出的一个概念，简而言之，就是一个网站能够兼容多个终端——而不是为每个终端做一个特定的版本。 这个概念是为解决移动互联网浏览而诞生的。 Flex 布局是什么？ Flex 是 Flexible Box 的缩写，意为”弹性布">
@@ -379,7 +379,7 @@
 <p>负值对该属性无效。</p>
 <h3 id="flex-basis属性"><a href="#flex-basis属性" class="headerlink" title="flex-basis属性"></a>flex-basis属性</h3><hr>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</p>
+<p>flex-basis 设置的是主轴方向上项目占据的空间，并且优先级高于height与width。</p>
 <h3 id="flex属性"><a href="#flex属性" class="headerlink" title="flex属性"></a>flex属性</h3><hr>
 <p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
