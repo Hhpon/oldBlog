@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="本文来自慕课网 Samaritan89 老师的JavaScript正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub地址  工具网站可以把我">
+<meta name="description" content="本文来自慕课网 Samaritan89 老师的 JavaScript 正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub 地址  工具网站可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 正则表达式">
 <meta property="og:url" content="http://yoursite.com/2019/02/15/Regexp/index.html">
 <meta property="og:site_name" content="Hhpon">
-<meta property="og:description" content="本文来自慕课网 Samaritan89 老师的JavaScript正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub地址  工具网站可以把我">
+<meta property="og:description" content="本文来自慕课网 Samaritan89 老师的 JavaScript 正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub 地址  工具网站可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/tool.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/is.png">
@@ -93,10 +93,11 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/预定义类.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/边界.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/量词.png">
-<meta property="og:updated_time" content="2019-02-15T05:42:17.219Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/15/Regexp/exec.JPG">
+<meta property="og:updated_time" content="2019-04-04T03:32:57.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 正则表达式">
-<meta name="twitter:description" content="本文来自慕课网 Samaritan89 老师的JavaScript正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub地址  工具网站可以把我">
+<meta name="twitter:description" content="本文来自慕课网 Samaritan89 老师的 JavaScript 正则表达式课程的学习笔记。 JavaScript 正则表达式简介及工具使用 什么是正则表达式 Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。 简单说就是按照某种规则匹配符合条件的字符串  工具网站：https://regexper.com/工具网站：GitHub 地址  工具网站可">
 <meta name="twitter:image" content="http://yoursite.com/2019/02/15/Regexp/tool.png">
 
 
@@ -307,13 +308,13 @@
       
 
       
-        <p>本文来自慕课网 <a href="https://www.imooc.com/learn/706" target="_blank" rel="noopener">Samaritan89</a> 老师的JavaScript正则表达式课程的学习笔记。</p>
+        <p>本文来自慕课网 <a href="https://www.imooc.com/learn/706" target="_blank" rel="noopener">Samaritan89</a> 老师的 JavaScript 正则表达式课程的学习笔记。</p>
 <h3 id="JavaScript-正则表达式简介及工具使用"><a href="#JavaScript-正则表达式简介及工具使用" class="headerlink" title="JavaScript 正则表达式简介及工具使用"></a>JavaScript 正则表达式简介及工具使用</h3><hr>
 <h4 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h4><ul>
 <li>Regular Expression 使用单个字符串描述、匹配一系列符合某个句法规则的字符串。</li>
 <li>简单说就是按照某种规则匹配符合条件的字符串</li>
 </ul>
-<p>工具网站：<a href="https://regexper.com/" target="_blank" rel="noopener">https://regexper.com/</a><br>工具网站：<a href="https://github.com/javallone/regexper-static" target="_blank" rel="noopener">GitHub地址</a></p>
+<p>工具网站：<a href="https://regexper.com/" target="_blank" rel="noopener">https://regexper.com/</a><br>工具网站：<a href="https://github.com/javallone/regexper-static" target="_blank" rel="noopener">GitHub 地址</a></p>
 <img src="/2019/02/15/Regexp/tool.png" title="工具网站截图">
 <p>工具网站可以把我们所写的正则表达式以示意图的方式表示出来，以防我们所写的正则表达式有错误。</p>
 <h3 id="REGEXP-对象"><a href="#REGEXP-对象" class="headerlink" title="REGEXP 对象"></a>REGEXP 对象</h3><hr>
@@ -325,13 +326,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="字面量实例化"><a href="#字面量实例化" class="headerlink" title="字面量实例化"></a>字面量实例化</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/</span>; </span><br><span class="line"><span class="string">'He is a boy. This is a dog. Where is she?'</span>.replace(reg,<span class="string">'IS'</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="string">'He IS a boy. This is a dog. Where is she?'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span>; </span><br><span class="line"><span class="string">'He is a boy. This is a dog. Where is she?'</span>.replace(reg,<span class="string">'IS'</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="string">'He IS a boy. This IS a dog. Where IS she?'</span></span><br></pre></td></tr></table></figure>
+<h4 id="字面量实例化"><a href="#字面量实例化" class="headerlink" title="字面量实例化"></a>字面量实例化</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/</span>;</span><br><span class="line"><span class="string">"He is a boy. This is a dog. Where is she?"</span>.replace(reg, <span class="string">"IS"</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line">(<span class="string">"He IS a boy. This is a dog. Where is she?"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span>;</span><br><span class="line"><span class="string">"He is a boy. This is a dog. Where is she?"</span>.replace(reg, <span class="string">"IS"</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line">(<span class="string">"He IS a boy. This IS a dog. Where IS she?"</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>‘\b’代表单词边界</li>
 <li>‘g’global 全局,使正则表达式匹配全文</li>
 </ul>
 <img src="/2019/02/15/Regexp/is.png" title="工具网站截图">
-<h4 id="构造函数实例化"><a href="#构造函数实例化" class="headerlink" title="构造函数实例化"></a>构造函数实例化</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>); </span><br><span class="line"><span class="string">'He is a boy. This is a dog. Where is she?'</span>.replace(reg,<span class="string">'IS'</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="string">'He IS a boy. This is a dog. Where is she?'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>,<span class="string">'g'</span>); </span><br><span class="line"><span class="string">'He is a boy. This is a dog. Where is she?'</span>.replace(reg,<span class="string">'IS'</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="string">'He IS a boy. This IS a dog. Where IS she?'</span></span><br><span class="line"></span><br><span class="line"><span class="string">'He is a boy. Is he?'</span>.replace(<span class="regexp">/\bis\b/g</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'He 0 a boy. Is he?'</span></span><br><span class="line"></span><br><span class="line"><span class="string">'He is a boy. Is he?'</span>.replace(<span class="regexp">/\bis\b/gi</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'He 0 a boy. Is he?'</span></span><br></pre></td></tr></table></figure>
+<h4 id="构造函数实例化"><a href="#构造函数实例化" class="headerlink" title="构造函数实例化"></a>构造函数实例化</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\bis\\b"</span>);</span><br><span class="line"><span class="string">"He is a boy. This is a dog. Where is she?"</span>.replace(reg, <span class="string">"IS"</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line">(<span class="string">"He IS a boy. This is a dog. Where is she?"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\bis\\b"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="string">"He is a boy. This is a dog. Where is she?"</span>.replace(reg, <span class="string">"IS"</span>);</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line">(<span class="string">"He IS a boy. This IS a dog. Where IS she?"</span>);</span><br><span class="line"></span><br><span class="line"><span class="string">"He is a boy. Is he?"</span>.replace(<span class="regexp">/\bis\b/g</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"He 0 a boy. Is he?"</span>);</span><br><span class="line"></span><br><span class="line"><span class="string">"He is a boy. Is he?"</span>.replace(<span class="regexp">/\bis\b/gi</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"He 0 a boy. Is he?"</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><ul>
 <li>g: global 全文搜索，不添加，搜索到第一个匹配停止</li>
 <li>i: ignore case 忽略大小写，默认大小写敏感</li>
@@ -348,13 +349,7 @@
 </ul>
 </li>
 <li>元字符是在正则表达式中有特殊意义的非字母字符</li>
-<li><ul>
-<li><ul>
-<li>? $ ^ . | \ ( ) { } [ ]</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>* + ? \$ ^ . | \ ( ) { } [ ]</li>
 </ul>
 <h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><hr>
 <ul>
@@ -371,13 +366,13 @@
 </ul>
 <h3 id="范围类"><a href="#范围类" class="headerlink" title="范围类"></a>范围类</h3><hr>
 <ul>
-<li>正则表达式还提供了 <strong>范围类</strong> </li>
+<li>正则表达式还提供了 <strong>范围类</strong></li>
 <li>我们可以使用 <strong>[a-z]</strong> 来连接两个字符表示 <strong>从 a 到 z 的任意字符</strong></li>
 <li>这是个闭区间也就是包含 a 和 z 本身</li>
 <li>在 [] 组成的类内部可以连写的 [a-zA-Z]、[0-9-]</li>
 </ul>
 <img src="/2019/02/15/Regexp/a-z.png" title="工具网站截图">
-<h3 id="JS预定义类及边界"><a href="#JS预定义类及边界" class="headerlink" title="JS预定义类及边界"></a>JS预定义类及边界</h3><hr>
+<h3 id="JS-预定义类及边界"><a href="#JS-预定义类及边界" class="headerlink" title="JS 预定义类及边界"></a>JS 预定义类及边界</h3><hr>
 <p>正则表达式还提供了预定义类来匹配常见字符串</p>
 <img src="/2019/02/15/Regexp/预定义类.png" title="预定义类">
 <img src="/2019/02/15/Regexp/边界.png" title="边界">
@@ -385,38 +380,44 @@
 <img src="/2019/02/15/Regexp/量词.png" title="量词">
 <h3 id="贪婪模式与非贪婪模式"><a href="#贪婪模式与非贪婪模式" class="headerlink" title="贪婪模式与非贪婪模式"></a>贪婪模式与非贪婪模式</h3><hr>
 <p>贪婪模式，正则表达式在匹配的过程中会尽可能多的匹配</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'12345678'</span>.replace(<span class="regexp">/\d&#123;3,6&#125;/g</span>,<span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'X78'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"12345678"</span>.replace(<span class="regexp">/\d&#123;3,6&#125;/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"X78"</span>);</span><br></pre></td></tr></table></figure>
 <p>非贪婪模式，即希望正则表达式尽可能少的匹配，方法很简单，在量词后面加上 ？即可</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'12345678'</span>.replace(<span class="regexp">/\d&#123;3,6&#125;?/g</span>,<span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'XX78'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"12345678"</span>.replace(<span class="regexp">/\d&#123;3,6&#125;?/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"XX78"</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><hr>
 <p>使用 ( ) 可以达到分组的功能，使量词作用于分组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a1b2c3d4'</span>.replace(<span class="regexp">/[a-z]\d&#123;3&#125;/g</span>,<span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'a1b2c3d4'</span></span><br><span class="line"><span class="string">'a1b2c3d4'</span>.replace(<span class="regexp">/([a-z]\d)&#123;3&#125;/g</span>,<span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'Xd4'</span></span><br></pre></td></tr></table></figure>
-<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'2016-11-25'</span>.replace(<span class="regexp">/\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/g</span>,<span class="string">'$1'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'$1'</span></span><br><span class="line"><span class="string">'2016-11-25'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>,<span class="string">'$2/$3/$1'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'11/25/2016'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"a1b2c3d4"</span>.replace(<span class="regexp">/[a-z]\d&#123;3&#125;/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"a1b2c3d4"</span>);</span><br><span class="line"><span class="string">"a1b2c3d4"</span>.replace(<span class="regexp">/([a-z]\d)&#123;3&#125;/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"Xd4"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"2016-11-25"</span>.replace(<span class="regexp">/\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/g</span>, <span class="string">"$1"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"$1"</span>);</span><br><span class="line"><span class="string">"2016-11-25"</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>, <span class="string">"$2/$3/$1"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"11/25/2016"</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="忽略分组"><a href="#忽略分组" class="headerlink" title="忽略分组"></a>忽略分组</h4><p>不希望捕获某些分组，只需要在分组内加上 ?: 就可以</p>
 <h3 id="前瞻"><a href="#前瞻" class="headerlink" title="前瞻"></a>前瞻</h3><hr>
 <ul>
 <li>正则表达式从文本头部向尾部开始解析，文本尾部方向称为前</li>
 <li>前瞻就是在正则表达式在匹配到规则的时候，向前检查是否符合断言，后顾/后瞻方向相反</li>
-<li>JavaScript不支持后顾</li>
+<li>JavaScript 不支持后顾</li>
 <li>符合和不符合特定断言称为 <strong>肯定/正向</strong> 匹配和 <strong>否定/负向</strong> 匹配</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a2*3'</span>.replace(<span class="regexp">/\w(?=\d)/g</span>, <span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'X2*3'</span></span><br><span class="line"><span class="string">'a2*34v8'</span>.replace(<span class="regexp">/\w(?=\d)/g</span>, <span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'X2*X4X8'</span></span><br><span class="line"><span class="string">'a2*3'</span>.replace(<span class="regexp">/\w(?!\d)/g</span>, <span class="string">'X'</span>)</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="string">'aX*3XXX'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"a2*3"</span>.replace(<span class="regexp">/\w(?=\d)/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"X2*3"</span>);</span><br><span class="line"><span class="string">"a2*34v8"</span>.replace(<span class="regexp">/\w(?=\d)/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"X2*X4X8"</span>);</span><br><span class="line"><span class="string">"a2*3"</span>.replace(<span class="regexp">/\w(?!\d)/g</span>, <span class="string">"X"</span>);</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">(<span class="string">"aX*3XXX"</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="JS-对象属性"><a href="#JS-对象属性" class="headerlink" title="JS 对象属性"></a>JS 对象属性</h3><hr>
 <ul>
-<li>global: 是否全文搜索，默认为 false </li>
+<li>global: 是否全文搜索，默认为 false</li>
 <li>ignore case: 是否大小写敏感，默认为 false</li>
-<li>multiline: 多行搜索，默认为false </li>
+<li>multiline: 多行搜索，默认为 false</li>
 <li>lastIndex: 是当前表达式匹配内容的最后一个字符的下一个位置</li>
 <li>source: 正则表达式的文本字符串</li>
 </ul>
 <h3 id="test-和-exec-方法"><a href="#test-和-exec-方法" class="headerlink" title="test 和 exec 方法"></a>test 和 exec 方法</h3><hr>
-<p>test() 用于测试字符串参数中是否存在匹配正则表达式模式的字符串，如果存在就返回 true ,如果不存在就返回 false</p>
-<p>使用正则表达式模式对字符串执行搜索，并将更新全局 RegExp 对象的属性以反映匹配结果<br>如果没有匹配的文本则返回 null ,否则返回一个结果数组：</p>
-<ul>
-<li>index 声明匹配文本的第一个字符位置</li>
-<li>input 存放被检索字符串 string</li>
-</ul>
-<p>调用非全局的 RegExp 对象的 exec() 时，返回数组<br>第一个元素是与正则表达式相匹配的文本<br>第二个元素是与 RegExpObject 的第一个子表达式相匹配的文本(如果有的话)<br>第三个元素是与 RegExpObject 的第二个子表达式相匹配的文本(如果有的话)，以此类推</p>
+<p><strong>test()</strong><br>用于测试字符串参数中是否存在匹配正则表达式模式的字符串，如果存在就返回 true ,如果不存在就返回 false</p>
+<p><strong>exec()</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/quick\s(brown).+?(jumps)/ig</span>;</span><br><span class="line"><span class="keyword">var</span> result = re.exec(<span class="string">'The Quick Brown Fox Jumps Over The Lazy Dog'</span>);</span><br></pre></td></tr></table></figure>
+<img src="/2019/02/15/Regexp/exec.JPG" title="exec MDN网站截图">
+<!-- 使用正则表达式模式对字符串执行搜索，并将更新全局 RegExp 对象的属性以反映匹配结果
+如果没有匹配的文本则返回 null ,否则返回一个结果数组：
+  - index 声明匹配文本的第一个字符位置
+  - input 存放被检索字符串 string
+
+调用非全局的 RegExp 对象的 exec() 时，返回数组
+第一个元素是与正则表达式相匹配的文本
+第二个元素是与 RegExpObject 的第一个子表达式相匹配的文本(如果有的话)
+第三个元素是与 RegExpObject 的第二个子表达式相匹配的文本(如果有的话)，以此类推 -->
 <h3 id="字符串对象方法"><a href="#字符串对象方法" class="headerlink" title="字符串对象方法"></a>字符串对象方法</h3><hr>
 <ul>
 <li>search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。返回第一个与 regexp 相匹配的子串的起始位置，找不到返回 -1</li>
@@ -578,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-正则表达式简介及工具使用"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 正则表达式简介及工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是正则表达式"><span class="nav-number">1.1.</span> <span class="nav-text">什么是正则表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REGEXP-对象"><span class="nav-number">2.</span> <span class="nav-text">REGEXP 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字面量实例化"><span class="nav-number">2.1.</span> <span class="nav-text">字面量实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数实例化"><span class="nav-number">2.2.</span> <span class="nav-text">构造函数实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">2.3.</span> <span class="nav-text">修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">3.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">4.</span> <span class="nav-text">字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类取反"><span class="nav-number">4.1.</span> <span class="nav-text">字符类取反</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围类"><span class="nav-number">5.</span> <span class="nav-text">范围类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS预定义类及边界"><span class="nav-number">6.</span> <span class="nav-text">JS预定义类及边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词"><span class="nav-number">7.</span> <span class="nav-text">量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪模式与非贪婪模式"><span class="nav-number">8.</span> <span class="nav-text">贪婪模式与非贪婪模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">9.</span> <span class="nav-text">分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#反向引用"><span class="nav-number">9.1.</span> <span class="nav-text">反向引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#忽略分组"><span class="nav-number">9.2.</span> <span class="nav-text">忽略分组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前瞻"><span class="nav-number">10.</span> <span class="nav-text">前瞻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-对象属性"><span class="nav-number">11.</span> <span class="nav-text">JS 对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-和-exec-方法"><span class="nav-number">12.</span> <span class="nav-text">test 和 exec 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串对象方法"><span class="nav-number">13.</span> <span class="nav-text">字符串对象方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-正则表达式简介及工具使用"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 正则表达式简介及工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是正则表达式"><span class="nav-number">1.1.</span> <span class="nav-text">什么是正则表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REGEXP-对象"><span class="nav-number">2.</span> <span class="nav-text">REGEXP 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字面量实例化"><span class="nav-number">2.1.</span> <span class="nav-text">字面量实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数实例化"><span class="nav-number">2.2.</span> <span class="nav-text">构造函数实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">2.3.</span> <span class="nav-text">修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">3.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">4.</span> <span class="nav-text">字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类取反"><span class="nav-number">4.1.</span> <span class="nav-text">字符类取反</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围类"><span class="nav-number">5.</span> <span class="nav-text">范围类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-预定义类及边界"><span class="nav-number">6.</span> <span class="nav-text">JS 预定义类及边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词"><span class="nav-number">7.</span> <span class="nav-text">量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪模式与非贪婪模式"><span class="nav-number">8.</span> <span class="nav-text">贪婪模式与非贪婪模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">9.</span> <span class="nav-text">分组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#反向引用"><span class="nav-number">9.1.</span> <span class="nav-text">反向引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#忽略分组"><span class="nav-number">9.2.</span> <span class="nav-text">忽略分组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前瞻"><span class="nav-number">10.</span> <span class="nav-text">前瞻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-对象属性"><span class="nav-number">11.</span> <span class="nav-text">JS 对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-和-exec-方法"><span class="nav-number">12.</span> <span class="nav-text">test 和 exec 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串对象方法"><span class="nav-number">13.</span> <span class="nav-text">字符串对象方法</span></a></li></ol></div>
             
 
           </div>
